@@ -22,4 +22,3 @@ app.listen(PORT, () => {
 });
 
 app.use('/employee', employeeController);
-app.use('/employee/list', employeeController);
