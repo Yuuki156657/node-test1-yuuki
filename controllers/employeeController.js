@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
 
 router.get('/', (req, res) => {
-    res.render("employee/addOrEdit",{
+    res.render("employee/list",{
         viewTitle : "Insert Employee"
     });
     // res.send('hiiiii');
