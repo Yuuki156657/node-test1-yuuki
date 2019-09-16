@@ -3,6 +3,16 @@ var router = express.Router();
 const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
 
+
+const app = express();
+const cors = require('cors');
+
+app.use(cors());
+
+app.get('/test', (req, res) => {
+    res.send('hi')
+});
+
 router.get('/', (req, res) => {
     res.render("employee/addOrEdit",{
         viewTitle : "Edit Employee"
