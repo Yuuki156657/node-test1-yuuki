@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
 
 router.get('/', (req, res) => {
-    res.render("employee/list",{
+    res.render("employee/addOrEdit",{
         viewTitle : "Insert Employee"
     });
     // res.send('hiiiii');
@@ -47,14 +47,14 @@ function insertRecord(req, res) {
 
 router.post('/', (req, res) => {
     // if (req.body._id == '')
-    //     insertRecord(req, res);
+        insertRecord(req, res);
     //     else
-        updateRecord(req, res);
+        // updateRecord(req, res);
 });
 
 function updateRecord(req, res) {
-    Employee.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
-    // Employee.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err) => {
+    // Employee.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
+    Employee.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err) => {
     
     if (!err) { res.redirect('employee/list'); }
         else {
