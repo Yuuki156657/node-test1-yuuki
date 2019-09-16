@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config()
 
-mongoose.connect('mongodb://localhost:27017/EmployeeDB', { 
+mongoose.connect(process.env.NODE_ENV === 'production' ? process.env.ATLAS_URI : 'mongodb://localhost:27017/EmployeeDB', { 
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, (err) => {
