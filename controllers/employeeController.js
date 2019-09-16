@@ -5,19 +5,16 @@ const Employee = mongoose.model('Employee');
 
 router.get('/', (req, res) => {
     res.render("employee/addOrEdit",{
-        viewTitle : "Insert Employee"
-    });
-    // res.send('hiiiii');
-    
+        viewTitle : "Edit Employee"
+    });    
 });
 
-
-// router.post('/', (req, res) => {
-//     if (req.body._id == '')
-//         insertRecord(req, res);
-//         else
-//         updateRecord(req, res);
-// });
+router.post('/', (req, res) => {
+    // if (req.body._id == '')
+        insertRecord(req, res);
+    //     else
+        // updateRecord(req, res);
+});
 
 mongoose.set('useFindAndModify', false);
 
@@ -26,8 +23,8 @@ function insertRecord(req, res) {
     var employee = new Employee();
     employee.fullName = req.body.fullName;
     employee.email = req.body.email;
-    employee.mobile = req.body.mobile;
-    employee.city = req.body.city;
+    employee.address = req.body.address;
+    employee.phone = req.body.phone;
     employee.save((err, doc) => {
         if (!err)
             res.redirect('employee/list');
@@ -44,13 +41,6 @@ function insertRecord(req, res) {
         }
     });
 }
-
-router.post('/', (req, res) => {
-    // if (req.body._id == '')
-        insertRecord(req, res);
-    //     else
-        // updateRecord(req, res);
-});
 
 function updateRecord(req, res) {
     // Employee.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {

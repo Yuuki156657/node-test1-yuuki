@@ -7,10 +7,10 @@ var employeeSchema = new mongoose.Schema({
     email: {
         type: String
     },
-    mobile: {
+    address: {
         type: String
     },
-    city: {
+    phone: {
         type: String
     }
 });
