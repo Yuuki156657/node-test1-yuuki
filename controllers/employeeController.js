@@ -3,15 +3,16 @@ var router = express.Router();
 const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
 
-
+// 変更0916
 const app = express();
 const cors = require('cors');
 
 app.use(cors());
+//-------------
 
-app.get('/test', (req, res) => {
-    res.send('hi')
-});
+// app.get('/test', (req, res) => {
+//     res.send('hi')
+// });
 
 router.get('/', (req, res) => {
     res.render("employee/addOrEdit",{
